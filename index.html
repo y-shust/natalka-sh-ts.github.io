@@ -83,18 +83,21 @@
   #home.active {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
     min-height: 100vh;
+    padding: 6rem 2.5rem 3rem;
+    gap: 0;
   }
 
   .home-top {
-    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 2.5rem;
-    padding: 2rem 0;
+    gap: 3rem;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
   }
 
   .home-title {
@@ -105,6 +108,7 @@
     line-height: 0.95;
     letter-spacing: -0.02em;
     text-align: center;
+    width: 100%;
   }
 
   .home-title span {
@@ -119,8 +123,9 @@
 
   .home-image {
     width: 100%;
-    max-width: 480px;
+    max-width: 420px;
     overflow: hidden;
+    margin: 0 auto;
   }
 
   .home-image img {
@@ -130,11 +135,13 @@
   }
 
   .home-bottom {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     border-top: 1px solid var(--border);
     padding-top: 1.2rem;
+    margin-top: 3rem;
     font-size: 0.72rem;
     letter-spacing: 0.08em;
     color: var(--muted);
