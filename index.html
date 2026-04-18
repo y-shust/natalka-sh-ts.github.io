@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Natalka Shust-Tsymbaliuk</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f5f3ef;
+    --text: #1a1a18;
+    --muted: #8a8880;
+    --border: #d8d5cf;
+    --accent: #c4bfb5;
+  }
+
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 1.4rem 2.5rem;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    color: var(--text);
+    cursor: pointer;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--muted);
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--text); }
+
+  /* PAGES */
+  .page {
+    display: none;
+    padding-top: 5rem;
+    min-height: 100vh;
+  }
+  .page.active { display: block; }
+
+  /* HOME */
+  #home {
+    display: none;
+    align-items: flex-end;
+    padding: 5rem 2.5rem 3rem;
+  }
+  #home.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+  }
+
+  .home-top {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .home-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 10vw, 8rem);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    text-align: center;
+  }
+
+  .home-title span {
+    display: block;
+    font-style: normal;
+    font-size: 0.38em;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.6em;
+  }
+
+  .home-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-top: 1px solid var(--border);
+    padding-top: 1.2rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+  }
+
+  /* WORKS */
+  .works-grid {
+    padding: 2rem 2.5rem 4rem;
+    columns: 2;
+    column-gap: 1.5rem;
+  }
+
+  .work-item {
+    break-inside: avoid;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+  }
+
+  .work-img {
+    width: 100%;
+    display: block;
+    background: var(--accent);
+    aspect-ratio: 4/5;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .work-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .work-item:hover .work-img img { transform: scale(1.03); }
+
+  .work-placeholder {
+    width: 100%;
+    height: 100%;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .work-caption {
+    padding: 0.5rem 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .work-caption-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--text);
+  }
+
+  .work-caption-meta {
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    text-align: right;
+  }
+
+  /* ABOUT / GENERIC TEXT PAGES */
+  .text-page {
+    max-width: 680px;
+    padding: 3rem 2.5rem 5rem;
+  }
+
+  .section-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 2.5rem;
+  }
+
+  .text-page p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    line-height: 1.75;
+    font-weight: 300;
+    margin-bottom: 1.4em;
+    color: var(--text);
+  }
+
+  .text-page p.muted {
+    color: var(--muted);
+    font-size: 1rem;
+  }
+
+  /* EXHIBITIONS */
+  .exhibitions-list {
+    padding: 3rem 2.5rem 5rem;
+    max-width: 900px;
+  }
+
+  .exhibition-row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 1.5rem;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: baseline;
+  }
+
+  .exhibition-year {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+  }
+
+  .exhibition-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+
+  .exhibition-desc em {
+    font-style: italic;
+    color: var(--muted);
+    font-size: 0.9rem;
+    display: block;
+    margin-top: 0.2em;
+  }
+
+  /* CONTACT */
+  .contact-page {
+    padding: 3rem 2.5rem 5rem;
+  }
+
+  .contact-block {
+    margin-top: 3rem;
+  }
+
+  .contact-block p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1.4;
+  }
+
+  .contact-block a {
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    transition: border-color 0.2s;
+  }
+
+  .contact-block a:hover { border-color: var(--text); }
+
+  /* FADE IN */
+  .page.active { animation: fadeIn 0.4s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  @media (max-width: 600px) {
+    nav { padding: 1.2rem 1.2rem; }
+    .nav-links { gap: 1rem; }
+    .works-grid { columns: 1; padding: 1.5rem 1.2rem 3rem; }
+    .text-page, .exhibitions-list, .contact-page { padding: 2rem 1.2rem 4rem; }
+    #home.active { padding: 5rem 1.2rem 2rem; }
+    .home-bottom { flex-direction: column; gap: 0.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-name" onclick="show('home')">Natalka Shust-Tsymbaliuk</span>
+  <ul class="nav-links">
+    <li><a href="#" onclick="show('works')">Works</a></li>
+    <li><a href="#" onclick="show('about')">About</a></li>
+    <li><a href="#" onclick="show('biography')">Biography</a></li>
+    <li><a href="#" onclick="show('exhibitions')">Exhibitions</a></li>
+    <li><a href="#" onclick="show('contact')">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HOME -->
+<div id="home" class="page active">
+  <div class="home-top">
+    <h1 class="home-title">
+      <span>Project</span>
+      Silence
+    </h1>
+  </div>
+  <div class="home-bottom">
+    <span>Mixed media &mdash; pencil, watercolor, thread on paper</span>
+    <span>2024&ndash;2026 &nbsp;&bull;&nbsp; 30+ works</span>
+  </div>
+</div>
+
+<!-- WORKS -->
+<div id="works" class="page">
+  <div class="works-grid">
+
+    <div class="work-item">
+      <div class="work-img">
+        <div class="work-placeholder">Upload your image here</div>
+      </div>
+      <div class="work-caption">
+        <span class="work-caption-title">no name</span>
+        <span class="work-caption-meta">2026 &nbsp;·&nbsp; 140×100 cm<br>Acrylic on paper</span>
+      </div>
+    </div>
+
+    <div class="work-item">
+      <div class="work-img">
+        <div class="work-placeholder">Upload your image here</div>
+      </div>
+      <div class="work-caption">
+        <span class="work-caption-title">no name</span>
+        <span class="work-caption-meta">2024 &nbsp;·&nbsp; 140×100 cm<br>Paper, pencil, watercolor, thread</span>
+      </div>
+    </div>
+
+    <div class="work-item">
+      <div class="work-img">
+        <div class="work-placeholder">Upload your image here</div>
+      </div>
+      <div class="work-caption">
+        <span class="work-caption-title">no name</span>
+        <span class="work-caption-meta">2024 &nbsp;·&nbsp; 140×100 cm<br>Paper, pencil, watercolor, thread</span>
+      </div>
+    </div>
+
+    <div class="work-item">
+      <div class="work-img">
+        <div class="work-placeholder">Upload your image here</div>
+      </div>
+      <div class="work-caption">
+        <span class="work-caption-title">no name</span>
+        <span class="work-caption-meta">2024 &nbsp;·&nbsp; 140×100 cm<br>Paper, pencil, watercolor, thread</span>
+      </div>
+    </div>
+
+    <div class="work-item">
+      <div class="work-img">
+        <div class="work-placeholder">Upload your image here</div>
+      </div>
+      <div class="work-caption">
+        <span class="work-caption-title">no name</span>
+        <span class="work-caption-meta">2025 &nbsp;·&nbsp; 30×21 cm<br>Paper, pencil</span>
+      </div>
+    </div>
+
+    <div class="work-item">
+      <div class="work-img">
+        <div class="work-placeholder">Upload your image here</div>
+      </div>
+      <div class="work-caption">
+        <span class="work-caption-title">no name</span>
+        <span class="work-caption-meta">2025 &nbsp;·&nbsp; 30×21 cm<br>Paper, pencil, watercolor, thread</span>
+      </div>
+    </div>
+
+    <div class="work-item">
+      <div class="work-img">
+        <div class="work-placeholder">Upload your image here</div>
+      </div>
+      <div class="work-caption">
+        <span class="work-caption-title">no name</span>
+        <span class="work-caption-meta">2024 &nbsp;·&nbsp; 30×21 cm<br>Paper, pencil, watercolor, thread</span>
+      </div>
+    </div>
+
+    <div class="work-item">
+      <div class="work-img">
+        <div class="work-placeholder">Upload your image here</div>
+      </div>
+      <div class="work-caption">
+        <span class="work-caption-title">no name</span>
+        <span class="work-caption-meta">2024 &nbsp;·&nbsp; 30×21 cm<br>Paper, pencil, watercolor, thread</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div id="about" class="page">
+  <div class="text-page">
+    <p class="section-label">About the project</p>
+    <p>This project is my personal diary — full of reflections on the present, a search for beauty and silence in times of unrest.</p>
+    <p>The works presented here were created over the past few years, many of them during the ongoing war in Ukraine.</p>
+    <p>My years of study at the Faculty of Artistic Textiles and my fascination with threads inspired me to experiment by interweaving threads with pencil and paper. It is a laborious technique, far more demanding than I expected, yet it allowed me to realize my vision — works imbued with symbols and ethnocodes of our ancestors.</p>
+    <p>A new challenge, where each image emerges on its own, free from unnecessary associations, while I draw dreamily, immersing myself in the process and detaching from everything around me.</p>
+    <p class="muted">The project consists of more than 30 works.</p>
+  </div>
+</div>
+
+<!-- BIOGRAPHY -->
+<div id="biography" class="page">
+  <div class="text-page">
+    <p class="section-label">Biography</p>
+    <p>I am a multidisciplinary artist from Ukraine, with a background rooted in textiles. After graduating from both the Lviv Art College and the Lviv Academy of Arts, my early work focused on experimenting with sculptural forms and Gobelin tapestries.</p>
+    <p>My artistic direction took a transformative turn in 2007 when I received the "Gaude Polonia" scholarship and studied at the Art Academy of Łódź, focusing on art textile workshops. This period of intense self-exploration pushed me toward painting and graphics, opening up a new realm of creative expression.</p>
+    <p>Today, I am focused on large-format original graphics and mixed-media textiles, combining my foundational knowledge of textiles with new techniques. My work reflects an ongoing search for self-expression and the interplay of materials, resulting in pieces that merge the tactile qualities of textiles with the expansive possibilities of painting and graphic art.</p>
+    <p class="muted">Artworks held in private collections across Ukraine, Poland, Canada, the USA, and Austria. Member of the National Union of Artists of Ukraine.</p>
+  </div>
+</div>
+
+<!-- EXHIBITIONS -->
+<div id="exhibitions" class="page">
+  <div class="exhibitions-list">
+    <p class="section-label">Selected exhibitions</p>
+
+    <div class="exhibition-row">
+      <span class="exhibition-year">2026</span>
+      <span class="exhibition-desc">Korsak Art Museum<em>"The Other is Nearby" — contemporary art project</em></span>
+    </div>
+    <div class="exhibition-row">
+      <span class="exhibition-year">2025</span>
+      <span class="exhibition-desc">Museum of Pysanka Painting, Kolomyia<em>Solo exhibition</em></span>
+    </div>
+    <div class="exhibition-row">
+      <span class="exhibition-year">2024</span>
+      <span class="exhibition-desc">Art Gallery Veles, Lviv<em>"Silence" — solo exhibition</em></span>
+    </div>
+    <div class="exhibition-row">
+      <span class="exhibition-year">2023</span>
+      <span class="exhibition-desc">Korsak Museum of Modern Ukrainian Art, Lutsk<em>"Cosmogony of Senses"</em></span>
+    </div>
+    <div class="exhibition-row">
+      <span class="exhibition-year">2016–2020</span>
+      <span class="exhibition-desc">LV Gallery, Lviv<em>"Paintings &amp; Graphics"</em></span>
+    </div>
+    <div class="exhibition-row">
+      <span class="exhibition-year">2015</span>
+      <span class="exhibition-desc">Svirzh Castle<em>"No GMO" — solo exhibition</em></span>
+    </div>
+    <div class="exhibition-row">
+      <span class="exhibition-year">2013</span>
+      <span class="exhibition-desc">Karas Gallery, Kyiv<em>"Artists Draw. A4. Ball-point"</em></span>
+    </div>
+    <div class="exhibition-row">
+      <span class="exhibition-year">2009</span>
+      <span class="exhibition-desc">Ukrainian Cultural Center, Paris<em>"5 Interpretations of Ukraine"</em></span>
+    </div>
+    <div class="exhibition-row">
+      <span class="exhibition-year">2009</span>
+      <span class="exhibition-desc">European Art Centre, Białystok, Poland<em>"Podlaska Autumn"</em></span>
+    </div>
+    <div class="exhibition-row">
+      <span class="exhibition-year">2009</span>
+      <span class="exhibition-desc">International art project<em>"Stibnyy Square" — Poland, Slovakia, Romania, Hungary, Ukraine</em></span>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class="page">
+  <div class="contact-page">
+    <p class="section-label">Contact</p>
+    <div class="contact-block">
+      <p>Natalka Shust-Tsymbaliuk</p>
+      <p><a href="mailto:poshtanatali@gmail.com">poshtanatali@gmail.com</a></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function show(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo(0, 0);
+    return false;
+  }
+
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', e => e.preventDefault());
+  });
+</script>
+
+</body>
+</html>
