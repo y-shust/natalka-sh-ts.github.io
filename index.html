@@ -90,8 +90,11 @@
   .home-top {
     flex: 1;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 2.5rem;
+    padding: 2rem 0;
   }
 
   .home-title {
@@ -112,6 +115,18 @@
     text-transform: uppercase;
     color: var(--muted);
     margin-bottom: 0.6em;
+  }
+
+  .home-image {
+    width: 100%;
+    max-width: 480px;
+    overflow: hidden;
+  }
+
+  .home-image img {
+    width: 100%;
+    height: auto;
+    display: block;
   }
 
   .home-bottom {
@@ -136,6 +151,14 @@
     break-inside: avoid;
     margin-bottom: 1.5rem;
     cursor: pointer;
+  }
+
+  .work-item.wide {
+    column-span: all;
+  }
+
+  .work-item.wide .work-img {
+    aspect-ratio: 16/7;
   }
 
   .work-img {
@@ -315,6 +338,9 @@
       <span>Project</span>
       Silence
     </h1>
+    <div class="home-image">
+      <img src="https://raw.githubusercontent.com/y-shust/natalka-sh-ts.github.io/main/Natalka%20Shust-Tsymbaliuk%20-%20TYSHA%203.jpg" alt="no name, 2023">
+    </div>
   </div>
   <div class="home-bottom">
     <span>Mixed media &mdash; pencil, watercolor, thread on paper</span>
@@ -327,70 +353,6 @@
   <div class="works-grid">
 
     <div class="work-item">
-      <div class="work-img"><img src="https://raw.githubusercontent.com/y-shust/natalka-sh-ts.github.io/main/Natalka%20Shust-Tsymbaliuk%20-%20TYSHA%202.jpg" alt="no name, 2024" loading="lazy"></div>
-      <div class="work-caption">
-        <span class="work-caption-title">no name</span>
-        <span class="work-caption-meta">2024 &nbsp;·&nbsp; 140×100 cm<br>Paper, pencil, watercolor, thread</span>
-      </div>
-    </div>
-
-    <div class="work-item">
-      <div class="work-img"><img src="https://raw.githubusercontent.com/y-shust/natalka-sh-ts.github.io/main/Natalka%20Shust-Tsymbaliuk%20-%20TYSHA%203.jpg" alt="no name, 2024" loading="lazy"></div>
-      <div class="work-caption">
-        <span class="work-caption-title">no name</span>
-        <span class="work-caption-meta">2024 &nbsp;·&nbsp; 140×100 cm<br>Paper, pencil, watercolor, thread</span>
-      </div>
-    </div>
-
-    <div class="work-item">
-      <div class="work-img"><img src="https://raw.githubusercontent.com/y-shust/natalka-sh-ts.github.io/main/Natalka%20Shust-Tsymbaliuk%20-%20TYSHA%204.jpg" alt="no name, 2024" loading="lazy"></div>
-      <div class="work-caption">
-        <span class="work-caption-title">no name</span>
-        <span class="work-caption-meta">2024 &nbsp;·&nbsp; 140×100 cm<br>Paper, pencil, watercolor, thread</span>
-      </div>
-    </div>
-
-    <div class="work-item">
-      <div class="work-img"><img src="https://raw.githubusercontent.com/y-shust/natalka-sh-ts.github.io/main/Natalka%20Shust-Tsymbaliuk%20-%20TYSHA%205.jpg" alt="no name, 2024" loading="lazy"></div>
-      <div class="work-caption">
-        <span class="work-caption-title">no name</span>
-        <span class="work-caption-meta">2024 &nbsp;·&nbsp; 140×100 cm<br>Paper, pencil, watercolor, thread</span>
-      </div>
-    </div>
-
-    <div class="work-item">
-      <div class="work-img"><img src="https://raw.githubusercontent.com/y-shust/natalka-sh-ts.github.io/main/Natalka%20Shust-Tsymbaliuk%20-%20TYSHA%208.jpg" alt="no name, 2024" loading="lazy"></div>
-      <div class="work-caption">
-        <span class="work-caption-title">no name</span>
-        <span class="work-caption-meta">2024 &nbsp;·&nbsp; 140×100 cm<br>Paper, pencil, watercolor, thread</span>
-      </div>
-    </div>
-
-    <div class="work-item">
-      <div class="work-img"><img src="https://raw.githubusercontent.com/y-shust/natalka-sh-ts.github.io/main/Natalka%20Shust-Tsymbaliuk%20-%20TYSHA%2012.jpg" alt="no name, 2024" loading="lazy"></div>
-      <div class="work-caption">
-        <span class="work-caption-title">no name</span>
-        <span class="work-caption-meta">2024 &nbsp;·&nbsp; 140×100 cm<br>Paper, pencil, watercolor, thread</span>
-      </div>
-    </div>
-
-    <div class="work-item">
-      <div class="work-img"><img src="https://raw.githubusercontent.com/y-shust/natalka-sh-ts.github.io/main/Natalka%20Shust-Tsymbaliuk%20-%20TYSHA%2014.jpg" alt="no name, 2024" loading="lazy"></div>
-      <div class="work-caption">
-        <span class="work-caption-title">no name</span>
-        <span class="work-caption-meta">2024 &nbsp;·&nbsp; 140×100 cm<br>Paper, pencil, watercolor, thread</span>
-      </div>
-    </div>
-
-    <div class="work-item">
-      <div class="work-img"><img src="https://raw.githubusercontent.com/y-shust/natalka-sh-ts.github.io/main/Natalka%20Shust-Tsymbaliuk%20-%20TYSHA%2015.jpg" alt="no name, 2024" loading="lazy"></div>
-      <div class="work-caption">
-        <span class="work-caption-title">no name</span>
-        <span class="work-caption-meta">2024 &nbsp;·&nbsp; 140×100 cm<br>Paper, pencil, watercolor, thread</span>
-      </div>
-    </div>
-
-    <div class="work-item">
       <div class="work-img"><img src="https://raw.githubusercontent.com/y-shust/natalka-sh-ts.github.io/main/Natalka%20Shust-Tsymbaliuk%20-%20TYSHA%2016.jpg" alt="no name, 2024" loading="lazy"></div>
       <div class="work-caption">
         <span class="work-caption-title">no name</span>
@@ -399,7 +361,55 @@
     </div>
 
     <div class="work-item">
-      <div class="work-img"><img src="https://raw.githubusercontent.com/y-shust/natalka-sh-ts.github.io/main/Natalka%20Shust-Tsymbaliuk%20-%20TYSHA%2017.jpg" alt="no name, 2026" loading="lazy"></div>
+      <div class="work-img"><img src="https://raw.githubusercontent.com/y-shust/natalka-sh-ts.github.io/main/Natalka%20Shust-Tsymbaliuk%20-%20TYSHA%208.jpg" alt="no name, 2023" loading="lazy"></div>
+      <div class="work-caption">
+        <span class="work-caption-title">no name</span>
+        <span class="work-caption-meta">2023 &nbsp;·&nbsp; 140×100 cm<br>Paper, pencil, watercolor, thread</span>
+      </div>
+    </div>
+
+    <div class="work-item">
+      <div class="work-img"><img src="https://raw.githubusercontent.com/y-shust/natalka-sh-ts.github.io/main/Natalka%20Shust-Tsymbaliuk%20-%20TYSHA%205.jpg" alt="no name, 2022" loading="lazy"></div>
+      <div class="work-caption">
+        <span class="work-caption-title">no name</span>
+        <span class="work-caption-meta">2022 &nbsp;·&nbsp; 140×100 cm<br>Paper, pencil, watercolor, thread</span>
+      </div>
+    </div>
+
+    <div class="work-item">
+      <div class="work-img"><img src="https://raw.githubusercontent.com/y-shust/natalka-sh-ts.github.io/main/Natalka%20Shust-Tsymbaliuk%20-%20TYSHA%204.jpg" alt="no name, 2023" loading="lazy"></div>
+      <div class="work-caption">
+        <span class="work-caption-title">no name</span>
+        <span class="work-caption-meta">2023 &nbsp;·&nbsp; 140×100 cm<br>Paper, pencil, watercolor, thread</span>
+      </div>
+    </div>
+
+    <div class="work-item">
+      <div class="work-img"><img src="https://raw.githubusercontent.com/y-shust/natalka-sh-ts.github.io/main/Natalka%20Shust-Tsymbaliuk%20-%20TYSHA%203.jpg" alt="no name, 2023" loading="lazy"></div>
+      <div class="work-caption">
+        <span class="work-caption-title">no name</span>
+        <span class="work-caption-meta">2023 &nbsp;·&nbsp; 140×100 cm<br>Paper, pencil, watercolor</span>
+      </div>
+    </div>
+
+    <div class="work-item">
+      <div class="work-img"><img src="https://raw.githubusercontent.com/y-shust/natalka-sh-ts.github.io/main/Natalka%20Shust-Tsymbaliuk%20-%20TYSHA%2012.jpg" alt="no name, 2024" loading="lazy"></div>
+      <div class="work-caption">
+        <span class="work-caption-title">no name</span>
+        <span class="work-caption-meta">2024 &nbsp;·&nbsp; 140×100 cm<br>Paper, pencil, watercolor</span>
+      </div>
+    </div>
+
+    <div class="work-item wide">
+      <div class="work-img"><img src="https://raw.githubusercontent.com/y-shust/natalka-sh-ts.github.io/main/Natalka%20Shust-Tsymbaliuk%20-%20TYSHA%2014.jpg" alt="no name, 2024" loading="lazy"></div>
+      <div class="work-caption">
+        <span class="work-caption-title">no name</span>
+        <span class="work-caption-meta">2024 &nbsp;·&nbsp; 140×100 cm (diptych)<br>Paper, pencil, watercolor, thread</span>
+      </div>
+    </div>
+
+    <div class="work-item">
+      <div class="work-img"><img src="https://raw.githubusercontent.com/y-shust/natalka-sh-ts.github.io/main/9682B735-F27E-4162-8943-E16A3F8A4227.jpeg" alt="no name, 2026" loading="lazy"></div>
       <div class="work-caption">
         <span class="work-caption-title">no name</span>
         <span class="work-caption-meta">2026 &nbsp;·&nbsp; 140×100 cm<br>Acrylic on paper</span>
@@ -407,34 +417,42 @@
     </div>
 
     <div class="work-item">
-      <div class="work-img"><img src="https://raw.githubusercontent.com/y-shust/natalka-sh-ts.github.io/main/IMG_1256.jpeg" alt="no name, 2025" loading="lazy"></div>
+      <div class="work-img"><img src="https://raw.githubusercontent.com/y-shust/natalka-sh-ts.github.io/main/IMG_1256.jpeg" alt="no name, 2026" loading="lazy"></div>
       <div class="work-caption">
         <span class="work-caption-title">no name</span>
-        <span class="work-caption-meta">2025 &nbsp;·&nbsp; 30×21 cm<br>Paper, pencil</span>
+        <span class="work-caption-meta">2026 &nbsp;·&nbsp; 140×100 cm<br>Acrylic on paper</span>
       </div>
     </div>
 
     <div class="work-item">
-      <div class="work-img"><img src="https://raw.githubusercontent.com/y-shust/natalka-sh-ts.github.io/main/IMG_1528.jpeg" alt="no name, 2025" loading="lazy"></div>
+      <div class="work-img"><img src="https://raw.githubusercontent.com/y-shust/natalka-sh-ts.github.io/main/IMG_1528.jpeg" alt="no name, 2026" loading="lazy"></div>
       <div class="work-caption">
         <span class="work-caption-title">no name</span>
-        <span class="work-caption-meta">2025 &nbsp;·&nbsp; 30×21 cm<br>Paper, pencil, watercolor, thread</span>
+        <span class="work-caption-meta">2026 &nbsp;·&nbsp; 30×21 cm<br>Paper, pencil, watercolor, thread</span>
       </div>
     </div>
 
     <div class="work-item">
-      <div class="work-img"><img src="https://raw.githubusercontent.com/y-shust/natalka-sh-ts.github.io/main/IMG_1612.jpeg" alt="no name, 2025" loading="lazy"></div>
+      <div class="work-img"><img src="https://raw.githubusercontent.com/y-shust/natalka-sh-ts.github.io/main/Natalka%20Shust-Tsymbaliuk%20-%20TYSHA%202.jpg" alt="no name, 2024" loading="lazy"></div>
       <div class="work-caption">
         <span class="work-caption-title">no name</span>
-        <span class="work-caption-meta">2025 &nbsp;·&nbsp; 30×21 cm<br>Paper, pencil</span>
+        <span class="work-caption-meta">2024 &nbsp;·&nbsp; 30×21 cm<br>Paper, pencil, thread</span>
       </div>
     </div>
 
     <div class="work-item">
-      <div class="work-img"><img src="https://raw.githubusercontent.com/y-shust/natalka-sh-ts.github.io/main/IMG_8110.jpeg" alt="no name, 2024" loading="lazy"></div>
+      <div class="work-img"><img src="https://raw.githubusercontent.com/y-shust/natalka-sh-ts.github.io/main/Natalka%20Shust-Tsymbaliuk%20-%20TYSHA%2015.jpg" alt="no name, 2024" loading="lazy"></div>
       <div class="work-caption">
         <span class="work-caption-title">no name</span>
-        <span class="work-caption-meta">2024 &nbsp;·&nbsp; 30×21 cm<br>Paper, pencil, watercolor, thread</span>
+        <span class="work-caption-meta">2024 &nbsp;·&nbsp; 30×21 cm<br>Paper, pencil, thread</span>
+      </div>
+    </div>
+
+    <div class="work-item">
+      <div class="work-img"><img src="https://raw.githubusercontent.com/y-shust/natalka-sh-ts.github.io/main/Natalka%20Shust-Tsymbaliuk%20-%20TYSHA%2017.jpg" alt="no name, 2022" loading="lazy"></div>
+      <div class="work-caption">
+        <span class="work-caption-title">no name</span>
+        <span class="work-caption-meta">2022 &nbsp;·&nbsp; 30×21 cm<br>Paper, pencil, thread</span>
       </div>
     </div>
 
@@ -442,7 +460,23 @@
       <div class="work-img"><img src="https://raw.githubusercontent.com/y-shust/natalka-sh-ts.github.io/main/IMG_8718.jpeg" alt="no name, 2024" loading="lazy"></div>
       <div class="work-caption">
         <span class="work-caption-title">no name</span>
-        <span class="work-caption-meta">2024 &nbsp;·&nbsp; 30×21 cm<br>Paper, pencil, watercolor, thread</span>
+        <span class="work-caption-meta">2024 &nbsp;·&nbsp; 30×21 cm<br>Paper, pencil, thread</span>
+      </div>
+    </div>
+
+    <div class="work-item">
+      <div class="work-img"><img src="https://raw.githubusercontent.com/y-shust/natalka-sh-ts.github.io/main/IMG_8110.jpeg" alt="no name, 2024" loading="lazy"></div>
+      <div class="work-caption">
+        <span class="work-caption-title">no name</span>
+        <span class="work-caption-meta">2024 &nbsp;·&nbsp; 30×21 cm<br>Paper, pencil, thread</span>
+      </div>
+    </div>
+
+    <div class="work-item">
+      <div class="work-img"><img src="https://raw.githubusercontent.com/y-shust/natalka-sh-ts.github.io/main/IMG_1612.jpeg" alt="no name, 2024" loading="lazy"></div>
+      <div class="work-caption">
+        <span class="work-caption-title">no name</span>
+        <span class="work-caption-meta">2024 &nbsp;·&nbsp; 30×21 cm<br>Paper, pencil, thread</span>
       </div>
     </div>
 
@@ -450,15 +484,7 @@
       <div class="work-img"><img src="https://raw.githubusercontent.com/y-shust/natalka-sh-ts.github.io/main/077A8CAB-5989-48DF-AE5E-9ABB8C4D4E62.jpeg" alt="no name, 2024" loading="lazy"></div>
       <div class="work-caption">
         <span class="work-caption-title">no name</span>
-        <span class="work-caption-meta">2024 &nbsp;·&nbsp; 30×21 cm<br>Paper, pencil, watercolor, thread</span>
-      </div>
-    </div>
-
-    <div class="work-item">
-      <div class="work-img"><img src="https://raw.githubusercontent.com/y-shust/natalka-sh-ts.github.io/main/9682B735-F27E-4162-8943-E16A3F8A4227.jpeg" alt="no name, 2024" loading="lazy"></div>
-      <div class="work-caption">
-        <span class="work-caption-title">no name</span>
-        <span class="work-caption-meta">2024 &nbsp;·&nbsp; 30×21 cm<br>Paper, pencil, watercolor, thread</span>
+        <span class="work-caption-meta">2024 &nbsp;·&nbsp; 30×21 cm<br>Paper, pencil, thread</span>
       </div>
     </div>
 
@@ -543,6 +569,7 @@
     <div class="contact-block">
       <p>Natalka Shust-Tsymbaliuk</p>
       <p><a href="mailto:poshtanatali@gmail.com">poshtanatali@gmail.com</a></p>
+      <p><a href="https://www.instagram.com/natalka.shustts" target="_blank">Instagram ↗</a></p>
     </div>
   </div>
 </div>
