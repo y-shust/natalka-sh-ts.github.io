@@ -316,11 +316,12 @@
   @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
   @media (max-width: 600px) {
-    nav { padding: 1.2rem 1.2rem; }
-    .nav-links { gap: 1rem; }
+    nav { padding: 0.8rem 1.2rem; flex-wrap: wrap; gap: 0.5rem; }
+    .nav-links { gap: 0.8rem; flex-wrap: wrap; }
+    .nav-links a { font-size: 0.62rem; letter-spacing: 0.06em; }
     .works-grid { columns: 1; padding: 1.5rem 1.2rem 3rem; }
     .text-page, .exhibitions-list, .contact-page { padding: 2rem 1.2rem 4rem; }
-    #home.active { padding: 8rem 1.2rem 2rem; }
+    #home.active { padding: 9rem 1.2rem 2rem; }
     .home-bottom { flex-direction: column; gap: 0.5rem; }
   }
 </style>
